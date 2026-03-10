@@ -1,3 +1,14 @@
+## API Design
+
+| Method | Endpoint | Description | Request Body | Success Response | Error Response |
+|------|------|------|------|------|------|
+| GET | /api/assignments | Retrieve all assignments | None | 200 – Returns list of assignments | 500 – Server error |
+| POST | /api/assignments | Create a new assignment | title, description, status, dueDate | 200 – Assignment created | 400 – Missing required fields |
+| GET | /api/assignments/{id} | Retrieve assignment details by ID | None | 200 – Assignment object | 404 – Assignment not found |
+| PUT | /api/assignments/{id} | Update an existing assignment | title, description, status, dueDate | 200 – Updated assignment | 404 – Assignment not found |
+| DELETE | /api/assignments/{id} | Delete an assignment | None | 200 – Assignment deleted | 404 – Assignment not found |
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
