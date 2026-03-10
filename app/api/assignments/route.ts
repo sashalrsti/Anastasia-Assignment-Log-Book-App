@@ -9,9 +9,9 @@ export async function POST(req: Request) {
 
   const body = await req.json();
 
-  if (!body.title || !body.course) {
+  if (!body.title || !body.description || !body.dueDate) {
     return new Response(
-      JSON.stringify({ error: "Title and Course required" }),
+      JSON.stringify({ error: "Missing required fields" }),
       { status: 400 }
     );
   }
@@ -19,10 +19,10 @@ export async function POST(req: Request) {
   const newAssignment = {
     id: uuidv4(),
     title: body.title,
-    course: body.course,
     description: body.description,
-    dueDate: body.dueDate,
-    status: body.status || "pending"
+    status: body.status || "Create",
+    assignmentDate: new Date().toISOString(),
+    dueDate: body.dueDate
   };
 
   assignments.push(newAssignment);

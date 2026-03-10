@@ -4,7 +4,6 @@ export async function GET(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-
   const assignment = assignments.find(a => a.id === params.id);
 
   if (!assignment) {
@@ -57,7 +56,5 @@ export async function DELETE(
 
   assignments.splice(index, 1);
 
-  return Response.json({
-    message: "Assignment deleted successfully"
-  });
+  return Response.json({ message: "Assignment deleted" });
 }
